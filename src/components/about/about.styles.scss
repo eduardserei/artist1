@@ -1,0 +1,23 @@
+.about-container{
+
+    background-color: red;
+    // background-image: url('../../assets/violin2.jpeg');
+    background-image: url('../../assets/studio2.jpeg');
+    // background-image: url('../../assets/violin1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @media screen and (min-width: 768px){
+    float: right;
+    display: block;
+    width: calc(100vw - 300px);
+    }
+
+    @media screen and (min-width: 1280px){
+        background-position: 50% 70%;
+    }
+    
+    height: 100vh;
+
+}

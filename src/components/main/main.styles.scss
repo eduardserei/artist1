@@ -1,0 +1,24 @@
+.main{
+    // for john-logo2
+    // background: rgb(46,130,130);
+    // background: linear-gradient(90deg, rgba(53,161,161,1) 0%, rgba(61,181,181,1) 100%);
+
+    // for normalLogo
+    background-image: url('../../assets/john1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 60%;
+
+    height: 100vh;
+
+    @media screen and (min-width: 768px){
+        float: right;
+        display: block;
+        width: calc(100vw - 300px);
+        
+    }
+    
+    @media screen and (min-width: 1024px){
+        background-position: 30% 60%;
+    }
+}

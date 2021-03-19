@@ -1,0 +1,50 @@
+.side-nav-container{
+    background-color: rgb(246, 246, 246);
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    @media screen and (min-width: 768px){
+        display: block;
+        width: 300px;
+    }
+    
+    
+    &__logo{
+        width: 100%;
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+    
+    &__nav-links-container{
+        text-align: center;
+        width: 100%;
+        ul li {
+            padding: 1rem 0;
+        }
+        ul a {
+            color: rgba(0, 0, 0, 0.548);
+            font-size: 2rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+        ul a:hover {
+            color: #000000;
+        }
+        
+    }
+    
+    &__social-icons-container{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 6rem;
+        div > * {
+            cursor: pointer;
+        }
+        div > *:hover {
+            filter: grayscale(0.2);
+        }
+    }
+}
