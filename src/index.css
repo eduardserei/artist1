@@ -1,17 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Chango&family=Roboto&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-body {
+body, html {
+  --nav-width: 300px;
+
   margin: 0;
   box-sizing: border-box;
-  /* background-color: rgb(82, 122, 230); */
-  /* background-image: url('./assets/violin1.jpeg'); */
+  scroll-behavior: smooth;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
-  font-family: 'Roboto', sans-serif;
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif; */
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
 
 code {

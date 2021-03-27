@@ -1,32 +1,51 @@
 
 .contact-component-container{
-    background-color: black;
-    background-image: url('../../assets/violin1.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    // background-image: url('../../assets/studio1.jpeg');
-    // background-image: url('../../assets/studio2.jpeg');
-    // background-image: url('../../assets/john1.jpeg');
-    // background-image: url('../../assets/john-logo.jpeg');
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: absolute;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-image: url('../../assets/studio6.jpeg');
+    left: 0;
     box-sizing: border-box;
     min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: 36px;
-    @media screen and (min-width: 768px){
-        padding-left: 64px;
-        padding-bottom: 36px;
+    width: 100vw;
+    @media screen and (min-width: 767px){
         float: right;
-        width: calc(100vw - 300px);
+        width: calc(100vw - var(--nav-width));
+        left: var(--nav-width);
+    }
+    img{
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .contact-container{
+        padding: 16px;
+        min-height: 100vh;
+        background-color: rgba(0, 0, 0, 0.466);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @media screen and (max-width: 767px){
+            justify-content: flex-start;
+        }
+        box-sizing: border-box;
     }
 }
 
+.contact-form a {
+    width: fit-content;
+}
+
 .feature-layout {
-    padding-top: 36px;
+    font-size: 24px;
+
+    @media screen and (max-width: 767px){
+        text-align: center;
+        padding-top: 64px;
+    }
     
     * {
         color: white;
@@ -35,43 +54,45 @@
     a{
         display: block;
         margin-top: 64px;
+        @media screen and (max-width: 767px){
+            margin-top: 16px;
+        }
     }
     
     a strong{
         width: 100%;
-        color: rgb(49, 141, 87);
+        color: rgb(80, 182, 123);
         word-wrap: break-word;
-        @media screen and (max-width: 768px){
+        @media screen and (max-width: 767px){
             letter-spacing: 1px;
-            font-size: 20px;
+            font-size: 16px;
         }
     }
 
-    @media screen and (max-width: 768px){
-        text-align: center;
+    h1 {
+        @media screen and (max-width: 767px){
+            font-size: 24px;
+        }
     }
 
     a strong:hover{
-        color: rgb(63, 179, 111);
+        color: rgb(70, 201, 125);
     }
 }
 
-.contact-container{
-
-    @media screen and (min-width: 1280px){
-        background-position: 50% 70%;
-    }
-
-    .sidebar-shown {
-        filter: blur(3px);
-    }
-}
-
-form{
+.contact-form{
     display: flex;
     flex-direction: column;
     width: 95%;
     max-width: 700px;
+    .form-item{
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width: 767px) {
+            margin-top: 0;
+        }
+    }
 }
 
 label{
@@ -93,21 +114,23 @@ input {
     padding: 0.5rem;
     text-align: center;
     width: 50%;
+    max-width: 300px;
 }
 
-button{
+.submit-btn{
+    margin-top: 16px;
     cursor: pointer;
     font-size: 20px;
     text-align: center;
     border: none;
     border-radius: 10px;
     color: white;
-    background-color: rgba(32, 32, 31, 0.815);
-    padding: 16px;
+    background-color: rgb(0, 0, 0);
+    padding: 16px 24px;
 }
 
-button:hover {
-    background-color: rgba(32, 32, 31, 0.445);
+.submit-btn:hover{
+    background-color: rgba(27, 27, 27, 0.377);
 }
 
 input::placeholder{
@@ -129,15 +152,16 @@ textarea::placeholder{
     transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
 
     form {
         padding: 0;
         margin: 2rem auto;
-    }
-
-    input, textarea, label {
-        width: 95%;
-        align-self: center;
+        div > label {
+            font-size: 14px;
+        }
+        .submit-btn{
+            font-size: 16px;
+        }
     }
 }

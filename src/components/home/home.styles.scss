@@ -1,0 +1,90 @@
+.home{
+    // for john-logo2
+    position: absolute;
+    // background: rgb(46,130,130);
+    // background: linear-gradient(90deg, rgba(53,161,161,1) 0%, rgba(61,181,181,1) 100%);
+
+    // for normalLogo
+    // background-image: url('../../assets/backgrounds/john1.jpeg');
+    background-image: url('../../assets/backgrounds/studio2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 60%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
+
+    .out-now-container{
+        position: relative;
+        margin-top: 100vh;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(167, 139, 111);
+        flex-direction: column;
+        box-sizing: border-box;
+        height: 100vh;
+        .titles{
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 20px;
+            text-align: center;
+            min-height: 10%;
+            @media screen and(max-width: 767px) {
+                font-size: 16px;
+            }
+        }
+        iframe{
+            width: 100%;
+            height: 90%;   
+            border: none;
+        }
+    }
+
+    @media screen and (min-width: 767px){
+        display: block;
+        left: 300px;
+        float: right;
+        width: calc(100vw - var(--nav-width));
+        
+    }
+    
+    @media screen and (min-width: 767px){
+        background-position: 30% 60%;
+    }
+}
+
+.arrow-down{
+    position: absolute;
+    width: 64px;
+    bottom: 16px;
+    left: 50%;
+    cursor: pointer;
+    z-index: 5;
+    transform: translate(-50%, 0);
+    transform-origin: bottom;
+    filter: invert(100%);
+    animation-name: bounce_5;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    @media screen and (max-width: 767px){
+        bottom: 125px;
+    }
+}
+
+@keyframes bounce_5 {
+    0%   { transform: scale(1,1)      translate(-50%, 0) }
+    5%  { transform: scale(1.2,.9)   translate(-50%, 0) }
+    15%  { transform: scale(1.2,.9)   translate(-50%, 0) }
+    20%  { transform: scale(1,1.1)    translate(-50%, -75px); }
+    38%  { transform: scale(1,1)    translate(-50%, -75px); }
+    40%  { transform: scale(1,1)      translate(-50%, 0); }
+    44%  { transform: scale(1,1.1)      translate(-50%, -50px); }
+    48%  { transform: scale(1.1,1)      translate(-45%, 0); }
+    51%  { transform: scale(1,1.1)      translate(-50%, -10px); }
+    53%  { transform: scale(1,1)      translate(-50%, 0); }
+    55%  { transform: scale(1,1.1)      translate(-50%, -5px); }
+    58%  { transform: scale(1,1)      translate(-50%, 0); }
+    100%  { transform: scale(1,1)      translate(-50%, 0); }
+}

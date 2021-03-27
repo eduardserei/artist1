@@ -1,38 +1,45 @@
 import "./contact.styles.scss";
 
-const hidePlaceholder = (placeholder) => {
-    console.log(placeholder);
-}
+import studio6 from '../../assets/studio6.jpeg';
 
 const Contact = ({ sidebarShown }) => (
     <div className="contact-component-container">
 
-        <div className="feature-layout">
-            <h1>Contact Artistu Vietii</h1>
+        <img src={studio6} alt="Studio Pic"/>
 
-            <a href="*">
-                <strong>
-                    ceva@artistuvietiimanagement.com
-                </strong>
-            </a>
-        </div>
+        <div className="contact-container">
+        
+            <div className="feature-layout">
+                <h1>Artistu Vietii</h1>
 
-        <div className={`contact-container ${sidebarShown ? 'sidebar-shown' : ''}`}>
-            <form action="post">
-                <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="name"
-                />
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="email" 
-                />
-                <label htmlFor="name">Message</label>
-                <textarea name="message" id="message" cols="10" rows="5"        
-                ></textarea>
-                <a href="/">
-                    <button>Send</button>
+                <a href="*">
+                    <strong>
+                        management@artistuvietii.com
+                    </strong>
                 </a>
-                
-            </form>
+            </div>
+
+            <div className='contact-form-container'>
+                <form action="post" className='contact-form'>
+                    <div className="form-item">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name="name" id="name"/>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" id="email"/>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="name">Message</label>
+                        <textarea name="message" id="message" cols="10" rows="5"></textarea>
+                    </div>
+                    <a href="/">
+                        <button className='submit-btn'>Send</button>
+                    </a>
+                    
+                </form>
+            </div>
+
         </div>
     </div>
 )

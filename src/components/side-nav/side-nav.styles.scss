@@ -1,37 +1,54 @@
 .side-nav-container{
+    position: fixed;
+    // background-color: rgb(246, 246, 246);
     background-color: rgb(246, 246, 246);
     height: 100vh;
-    position: fixed;
-    display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    width: var(--nav-width);
     display: none;
-    @media screen and (min-width: 768px){
-        display: block;
-        width: 300px;
+    z-index: 3;
+
+    @media screen and (min-width: 767px){
+        display: flex;
     }
     
     
     &__logo{
-        width: 100%;
-        margin-top: 2rem;
-        margin-bottom: 4rem;
+        width: 80%;
+        mix-blend-mode: multiply;
     }
     
     &__nav-links-container{
-        text-align: center;
         width: 100%;
+        text-align: center;
         ul li {
             padding: 1rem 0;
         }
         ul a {
+            display: block;
+            box-sizing: border-box;
             color: rgba(0, 0, 0, 0.548);
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
-            width: fit-content;
+            width: 70%;
+            margin: 0 auto;
+            border-radius: 32px;
+            border: 1px solid rgba(240, 240, 240, 0.815);
+            padding: 8px 0;
+            background: #f7f7f7;
+            box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
         }
         ul a:hover {
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        ul a.active{
             color: #000000;
+            box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+            inset 8px 8px 16px rgba(0, 0, 0, 0.1);
         }
         
     }
@@ -39,12 +56,21 @@
     &__social-icons-container{
         display: flex;
         justify-content: space-around;
-        margin-top: 6rem;
-        div > * {
+        // margin-top: 3rem;
+        width: 100%;
+        * {
             cursor: pointer;
+            font-size: 2rem;
         }
-        div > *:hover {
+        
+        img {
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        img:hover {
             filter: grayscale(0.2);
         }
+
     }
 }
