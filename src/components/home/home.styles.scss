@@ -1,11 +1,6 @@
 .home{
-    // for john-logo2
-    position: absolute;
-    // background: rgb(46,130,130);
-    // background: linear-gradient(90deg, rgba(53,161,161,1) 0%, rgba(61,181,181,1) 100%);
 
-    // for normalLogo
-    // background-image: url('../../assets/backgrounds/john1.jpeg');
+    position: absolute;
     background-image: url('../../assets/backgrounds/studio2.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,20 +13,28 @@
     .out-now-container{
         position: relative;
         margin-top: 100vh;
-        padding: 1rem;
+        padding: 0 2rem;
+        padding-bottom: 1rem;
         display: flex;
         flex-direction: column;
-        background-color: rgb(167, 139, 111);
+        background-color: var(--goldish);
         flex-direction: column;
         box-sizing: border-box;
         height: 100vh;
+        
+        @media screen and(max-width: 768px) {
+            padding: 0 1rem;
+            padding-bottom: 1rem;
+        }
         .titles{
             color: #ffffff;
             font-weight: 800;
+            padding: 1rem;
             font-size: 20px;
             text-align: center;
             min-height: 10%;
-            @media screen and(max-width: 767px) {
+            @media screen and(max-width: 768px) {
+                padding: 2rem 0;
                 font-size: 16px;
             }
         }
@@ -42,7 +45,7 @@
         }
     }
 
-    @media screen and (min-width: 767px){
+    @media screen and (min-width: 769px){
         display: block;
         left: 300px;
         float: right;
@@ -50,7 +53,7 @@
         
     }
     
-    @media screen and (min-width: 767px){
+    @media screen and (min-width: 769px){
         background-position: 30% 60%;
     }
 }
@@ -68,7 +71,7 @@
     animation-name: bounce_5;
     animation-duration: 6s;
     animation-iteration-count: infinite;
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 768px){
         bottom: 125px;
     }
 }

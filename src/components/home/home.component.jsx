@@ -6,11 +6,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import arrowDown from "../../assets/util-icons/arrow-down-1.png";
 
 import './home.styles.scss';
+import Footer from "../footer/footer.component";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
     let arrowDownEl = useRef(null);
+    let title = useRef(null)
 
     useEffect(()=>{
         gsap.to(arrowDownEl, {
@@ -30,7 +32,7 @@ const Home = () => {
     
     
     const scrollToBottom = () => {
-        window.scroll(0, document.documentElement.scrollHeight)
+        title.scrollIntoView()
     }
     
     return (
@@ -38,7 +40,8 @@ const Home = () => {
             <img src={arrowDown} alt="scroll-down" className="arrow-down" ref={el => arrowDownEl = el} onClick={scrollToBottom}/>
             <div className="out-now-container">
                 <div className="titles">
-                    <div className="title">NEW SONG TITLE - <span>Out NOW</span></div>
+                    <div className="title" ref={el => title = el}>NEW SONG TITLE<span></span></div>
+                    <div className="title">- Out NOW -</div>
                     <div className="title">MY NEW SONG</div>
                 </div>
                 <iframe 
@@ -48,6 +51,7 @@ const Home = () => {
                     title="youtube-title"
                 ></iframe>
             </div>
+            <Footer/>
         </div>
     )
 }

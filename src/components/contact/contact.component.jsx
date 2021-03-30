@@ -1,18 +1,19 @@
 import "./contact.styles.scss";
 
 import studio6 from '../../assets/studio6.jpeg';
+import Footer from "../footer/footer.component";
 
 const Contact = ({ sidebarShown }) => (
-    <div className="contact-component-container">
+    <section className="contact-component-container">
 
-        <img src={studio6} alt="Studio Pic"/>
+        <img src={studio6} alt="Studio Pic" className="background-image"/>
 
         <div className="contact-container">
         
             <div className="feature-layout">
                 <h1>Artistu Vietii</h1>
 
-                <a href="*">
+                <a href="/contact">
                     <strong>
                         management@artistuvietii.com
                     </strong>
@@ -33,15 +34,19 @@ const Contact = ({ sidebarShown }) => (
                         <label htmlFor="name">Message</label>
                         <textarea name="message" id="message" cols="10" rows="5"></textarea>
                     </div>
-                    <a href="/">
-                        <button className='submit-btn'>Send</button>
+                    <a href="/contact">
+                        <button 
+                        className='submit-btn'
+                        onClick={ev => ev.preventDefault()}
+                        >Send</button>
                     </a>
                     
                 </form>
             </div>
 
         </div>
-    </div>
+        <Footer />
+    </section>
 )
 
 export default Contact;

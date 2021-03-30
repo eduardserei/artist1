@@ -2,6 +2,12 @@
 
 body, html {
   --nav-width: 300px;
+  --nav-height: 75px;
+  --footer-normal-height: 75px;
+  --footer-mobile-height: 150px;
+  --inner-shadow: inset 0px 5px 20px -15px rgba(0,0,0,0.8);
+  --almost-white: rgb(246, 246, 246);
+  --goldish: rgb(167, 139, 111);
 
   margin: 0;
   box-sizing: border-box;
@@ -21,6 +27,11 @@ body, html {
   display: none;
 }
 
+* {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -35,7 +46,7 @@ li {
   list-style: none;
 }
 
-ul {
+ul, h1, h2{
   margin: 0;
   padding: 0;
 }

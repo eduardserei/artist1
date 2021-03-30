@@ -1,16 +1,18 @@
 .mobile-nav-container{
   
     display: none;
-    height: 75px;
+    height: var(--nav-height);
     width: 100%;
-    background-color: rgb(246, 246, 246);
+    padding: 8px;
+    background-color: var(--almost-white);
     position: fixed;
     top: 0;
     z-index: 10;
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
+    box-shadow: var(--inner-shadow);
 
-    // @media screen and (max-width: var(--nav-width)){
-    @media screen and (max-width: 767px){
+    @media screen and (max-width: 768px){
         display: block;
     }
 

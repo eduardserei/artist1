@@ -14,13 +14,13 @@ class App extends React.Component {
     super();
 
     this.state = {
-      mobileSize: window.innerWidth < 767,
+      mobileSize: window.innerWidth < 769,
     }
   }
 
   componentDidMount(){
       window.addEventListener('resize', (ev) => {
-        const mobileSizeCheck = ev.target.innerWidth < 767; 
+        const mobileSizeCheck = ev.target.innerWidth < 769; 
         this.setState({mobileSize: mobileSizeCheck});
       })
     }

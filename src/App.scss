@@ -1,8 +1,6 @@
 .transition-enter {
     transform: translateX(-100%);
-    @media screen and (max-width: 767px){
-      transform: translateY(-100%);
-    }
+    overflow: hidden;
 }
 .transition-enter-active {
     transition: all 1000ms ease;
@@ -18,7 +16,7 @@
     transition: all 1000ms ease;
   }
 
-  @media screen and (max-width: 767px){
+  @media screen and (max-width: 768px){
     .transition-exit-active, .transition-exit, 
     .transition-enter, .transition-enter-active {
       transition: none;

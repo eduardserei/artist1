@@ -1,78 +1,102 @@
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, createRef } from 'react';
 import "./about.styles.scss";
 import john1 from '../../assets/backgrounds/john1.jpeg';
-import { gsap } from 'gsap';
+import { gsap, Elastic, Back } from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import arrowDown from "../../assets/util-icons/arrow-down-1.png";
+import Footer from '../footer/footer.component';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
-    let infoContainer = useRef(null);
     let backgroundImage = useRef(null);
-    let scrollIcon = useRef(null);
-    let title = useRef(null);
+    let subtitleRef = useRef(null);
+    let paragraphRef = useRef(null)
+    
+    const paragraphText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi autem veritatis optio fugit architecto nam nemo a illo accusamus non ad aspernatur suscipit repudiandae, voluptas maxime alias impedit nostrum sint qui laudantium commodi quae sequi odit.';
+    const titleText1 = 'ARTIST';
+    const titleText2 = 'NAME';
+    const titleTextArray1 = titleText1.split('');
+    const titleTextArray2 = titleText2.split('');
+    let titleLettersRef1 = useRef(titleTextArray1.map(l => createRef()))
+    let titleLettersRef2 = useRef(titleTextArray2.map(l => createRef()))
 
-    const scrollToBottom = () => {title.scrollIntoView()}
+    
+    // let titleRef = useRef(titleText.split('').map(l => createRef()));
     
     useEffect(() => {
+        
+        // const all = multiple.current.map(el => el.current)
+        
+        gsap.to(backgroundImage, {
+            duration: 3,
+            ease: "ease-in",
+            filter: "blur(4px)"
+        })
 
-        gsap.from(backgroundImage, {
-            scrollTrigger: {
-                start: "top top",
-                end: "bottom bottom",
-                duration: 1,
-                trigger: infoContainer,
-                toggleActions: 'play none none reverse', // up - normal, down - reverse,
-                scrub: true,
-                // markers: true
+        gsap.timeline()
+        .from(titleLettersRef1.current, {
+            y: -200,
+            x: "-75vh",
+            duration: 1,
+            ease: Elastic.easeOut.config(1.5, 1.5),
+            transform: 'scale(4)',
+            stagger: {
+                each: 0.1,
             },
-            filter: "blur(0px)"
         })
-
-        gsap.from(infoContainer, {
-            scrollTrigger: {
-                start: "top top",
-                end: "bottom bottom",
-                duration: 1,
-                trigger: infoContainer,
-                toggleActions: 'play none none reverse', // up - normal, down - reverse,
-                scrub: true,
-                // markers: true,
-                id: "CONTAINER"
-            },        
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            opacity: 0,
-        })
-
-        gsap.to(scrollIcon, {
-            scrollTrigger: {
-                start: "top top",
-                end: "bottom bottom",
-                duration: 1,
-                trigger: infoContainer,
-                toggleActions: 'play none none reset', // up - normal, down - reverse,
-                // scrub: true,
-                // markers: true,
-                id: "ICON"
+        .from(titleLettersRef2.current, {
+            y: 200,
+            x: "75vh",
+            duration: 1,
+            ease: Elastic.easeOut.config(1.5, 1.5),
+            transform: 'scale(4)',
+            stagger: {
+                each: 0.1,
             },
-            opacity: 0,
         })
-
+        .from(subtitleRef.current, {
+            duration: 1,
+            opacity: 0
+        })
+        .from(paragraphRef.current, {
+            duration: 1,
+            opacity: 0,
+            x: -150,
+            ease: Back.easeOut.config(1.3)
+        })
         
     }, [])
     
     return (
         <div className="about-container">
+                {/* <img src={arrowDown} alt="scroll-down" className="arrow-down" ref={el => scrollIcon = el} onClick={scrollToBottom}/> */}
                 <img src={john1} alt="About Pic" className='about-img' ref={el => backgroundImage = el}/>
-                <img src={arrowDown} alt="scroll-down" className="arrow-down" ref={el => scrollIcon = el} onClick={scrollToBottom}/>
-                <div className="about-container__info-container" ref={el => infoContainer = el} id="info">
-                    <h1 className='about-container__title' ref={el => title = el} >ARTIST NAME</h1>
-                    <h2 className='about-container__subtitle'>SUBTITLE IF NECESSARY</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi autem veritatis optio fugit architecto nam nemo a illo accusamus non ad aspernatur suscipit repudiandae, voluptas maxime alias impedit nostrum sint qui laudantium commodi quae sequi odit. 
-                        Ab nobis dolore saepe nam perspiciatis totam iusto, ullam rem cupiditate fuga corrupti, debitis possimus magni ipsa dolor, repudiandae sunt eum et. Neque voluptatem, vitae dolores consequatur nemo enim impedit molestias, cumque sunt incidunt quo autem dolor nisi repellat porro voluptatibus, sapiente numquam! Quos, dolore. Accusantium provident, suscipit voluptates ratione sunt corporis consequuntur dolor accusamus aperiam minima nisi quae doloribus tenetur. Nisi, harum.</p>
-                </div>
+                <div className="about-container__info-container"> 
+                    <h1 className='about-container__title'>
+                        {
+                            titleTextArray1.map((letter, index) => {
+                                return <span 
+                                    key={letter + index}
+                                    ref={el => titleLettersRef1.current[index] = el}
+                                    className="letter"
+                                    >{letter}</span>
+                            })
+                        }
+                        {
+                            titleTextArray2.map((letter, index) => {
+                                return <span 
+                                    key={letter + index}
+                                    ref={el => titleLettersRef2.current[index] = el}
+                                    className="letter"
+                                    >{letter}</span>
+                            })
+                        }
+                    </h1>
+                    <h2 className='about-container__subtitle' ref={subtitleRef}>SUBTITLE IF NECESSARY</h2>
+                    <p ref={paragraphRef}>{paragraphText}</p>
+                </div> 
+                <Footer/>
         </div>
     )
 }

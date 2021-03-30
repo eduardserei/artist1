@@ -1,158 +1,62 @@
 .about-container{
 
-    // background-image: url('../../assets/violin1.jpeg');
-    // background-image: url('../../assets/violin2.jpeg');
-    // background-image: url('../../assets/studio2.jpeg');
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: center;
-    // background-attachment: fixed;
-
     position: absolute;
     left: 0;
     color: white;
     height: 100vh;
+    width: 100vw;
     box-sizing: border-box;
 
-    // @media screen and (min-width: 767px){
-    @media screen and (min-width: 767px){
-    width: calc(100vw - var(--nav-width));
-    left: var(--nav-width);
+    @media screen and (min-width: 769px){
+        float: right;
+        width: calc(100vw - var(--nav-width));
+        left: var(--nav-width);
     }
 
-    @media screen and (min-width: 1280px){
-        background-position: 50% 70%;
-    }
     &__info-container{
-        height: fit-content;
-        width: calc(100vw - var(--nav-width));
-        padding: 0 20px;
-        padding-top: 50vh;
-        padding-bottom: 32px;
+        min-height: calc(100vh - var(--footer-normal-height));
+        padding: var(--nav-height) 20px;
         background-color: rgba(0, 0, 0, 0.7);
         opacity: 1;
-        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        @media screen and (max-width: 768px){
+            min-height: calc(100vh - var(--footer-mobile-height));
+
+        }
         p {
-            max-width: 768px;
+            max-width: 1280px;
             margin: 0 auto;
             white-space: pre-wrap;
-        }
-        @media screen and (max-width: 767px){
-            width: 100vw;
-            padding-top: 100vh;
         }
     }
     
     .about-img {
-        position: fixed;
-        height: 100vh;
-        object-fit: cover;
+        position: absolute;
         z-index: -1;
-        right: 0;
-        top: 0;
-        width: calc(100vw - var(--nav-width));
-        filter: blur(4px);
-        @media screen and (max-width: 767px){
-            width: 100%;
-        }
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: blur(0);
     }
 
     &__title, &__subtitle {
-        text-align: center;
-        margin: 64px 0;
-        @media screen and (max-width: 767px){
-            margin: 32px 0;
-        }
+        margin: 32px 0;
     }
     &__title{
-        @media screen and (max-width: 767px){
-            margin-top: 128px;
-            padding-top: 100px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        .letter{
+            font-size: 24px;
+            display: block;
         }
-        
     }
 
     &__subtitle {
-        @media screen and (max-width: 767px){
+        text-align: center;
+        @media screen and (max-width: 768px){
             font-size: 20px;
         }
     }
-
-    .arrow-down{
-        position: absolute;
-        width: 64px;
-        bottom: 16px;
-        left: 50%;
-        cursor: pointer;
-        z-index: 5;
-        transform: translate(-50%, 0);
-        transform-origin: bottom;
-        filter: invert(100%);
-        animation-name: bounce_5;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        -webkit-transform: translate(-50%, 0);
-        -webkit-transform-origin: bottom;
-        -webkit-filter: invert(100%);
-        -webkit-animation-name: bounce_5 ;
-        -webkit-animation-duration: 6s;
-        -webkit-animation-iteration-count: infinite;
-        -moz-transform: translate(-50%, 0);
-        -moz-transform-origin: bottom;
-        -moz-filter: invert(100%);
-        -moz-animation-name: bounce_5 ;
-        -moz-animation-duration: 6s;
-        -moz-animation-iteration-count: infinite;
-        @media screen and (max-width: 767px){
-            bottom: 125px;
-        }
-    }
-    
-}
-
-@keyframes bounce_5 {
-    0%   { transform: scale(1,1)      translate(-50%, 0) }
-    5%  { transform: scale(1.2,.9)   translate(-50%, 0) }
-    15%  { transform: scale(1.2,.9)   translate(-50%, 0) }
-    20%  { transform: scale(1,1.1)    translate(-50%, -75px); }
-    38%  { transform: scale(1,1)    translate(-50%, -75px); }
-    40%  { transform: scale(1,1)      translate(-50%, 0); }
-    44%  { transform: scale(1,1.1)      translate(-50%, -50px); }
-    48%  { transform: scale(1.1,1)      translate(-45%, 0); }
-    51%  { transform: scale(1,1.1)      translate(-50%, -10px); }
-    53%  { transform: scale(1,1)      translate(-50%, 0); }
-    55%  { transform: scale(1,1.1)      translate(-50%, -5px); }
-    58%  { transform: scale(1,1)      translate(-50%, 0); }
-    100%  { transform: scale(1,1)      translate(-50%, 0); }
-}
-
-@-webkit-keyframes bounce_5 {
-    0%   { -webkit-transform: scale(1,1)      translate(-50%, 0) }
-    5%  { -webkit-transform: scale(1.2,.9)   translate(-50%, 0) }
-    15%  { -webkit-transform: scale(1.2,.9)   translate(-50%, 0) }
-    20%  { -webkit-transform: scale(1,1.1)    translate(-50%, -75px); }
-    38%  { -webkit-transform: scale(1,1)    translate(-50%, -75px); }
-    40%  { -webkit-transform: scale(1,1)      translate(-50%, 0); }
-    44%  { -webkit-transform: scale(1,1.1)      translate(-50%, -50px); }
-    48%  { -webkit-transform: scale(1.1,1)      translate(-45%, 0); }
-    51%  { -webkit-transform: scale(1,1.1)      translate(-50%, -10px); }
-    53%  { -webkit-transform: scale(1,1)      translate(-50%, 0); }
-    55%  { -webkit-transform: scale(1,1.1)      translate(-50%, -5px); }
-    58%  { -webkit-transform: scale(1,1)      translate(-50%, 0); }
-    100%  { -webkit-transform: scale(1,1)      translate(-50%, 0); }
-}
-@-moz-keyframes bounce_5 {
-    0%   { -moz-transform: scale(1,1)      translate(-50%, 0) }
-    5%  { -moz-transform: scale(1.2,.9)   translate(-50%, 0) }
-    15%  { -moz-transform: scale(1.2,.9)   translate(-50%, 0) }
-    20%  { -moz-transform: scale(1,1.1)    translate(-50%, -75px); }
-    38%  { -moz-transform: scale(1,1)    translate(-50%, -75px); }
-    40%  { -moz-transform: scale(1,1)      translate(-50%, 0); }
-    44%  { -moz-transform: scale(1,1.1)      translate(-50%, -50px); }
-    48%  { -moz-transform: scale(1.1,1)      translate(-45%, 0); }
-    51%  { -moz-transform: scale(1,1.1)      translate(-50%, -10px); }
-    53%  { -moz-transform: scale(1,1)      translate(-50%, 0); }
-    55%  { -moz-transform: scale(1,1.1)      translate(-50%, -5px); }
-    58%  { -moz-transform: scale(1,1)      translate(-50%, 0); }
-    100%  { -moz-transform: scale(1,1)      translate(-50%, 0); }
 }
